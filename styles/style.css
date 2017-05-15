@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+body {
+    background-color: #B2CCCC;
+    text-align: center;
+    font-family: "Courgette";
+}
+
+.top {
+    background-color: #3c8a95;
+    width: 94%;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px black;
+}
+h1 {
+    padding: 20px;
+}
+h2 {
+    font-size: 40px;
+    margin: 10px;
+}
+.column-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.column {
+    width: 30%;
+    margin: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 5px 5px 15px black;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 10px 10px 20px black;
+}
+ul {
+    list-style-type: none;
+}
+.ui-sortable {
+    height: 100%;
+    padding: 0;
+}
+li.card {;
+    background-color: #3c8a95;
+    margin: 20px;
+    border-radius: 5px;
+}
+p {
+    font-size: 28px;
+}
+/* buttons */
+.delete-card {
+    float: right;
+}
+.create-column {
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}

@@ -1,3 +1,4 @@
+
 $(function() {
 
     function randomString() {
@@ -25,7 +26,7 @@ $(function() {
             // card's list
             var $columnCardList = $('<ul>').addClass('column-card-list');
             // deleting the column
-            var $columnDelete = $('<button>').addClass('btn-delete').text('x');
+            var $columnDelete = $('<button>').addClass('btn-delete').text('Usuń kolumnę');
             // adding the card
             var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
 
@@ -68,7 +69,7 @@ $(function() {
 	              // implementacja tworzenia karty
                   var $card = $('<li>').addClass('card');
                   var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-                  var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+                  var $cardDelete = $('<button>').addClass('btn-delete delete-card').text('Usuń kartę');
 
                   $cardDelete.click(function(){
                       self.removeCard();
