@@ -11,14 +11,14 @@ $(function() {
     }
 
     function Column(name) {
-        var self = this; // przyda się dla funkcji zagnieżdżonych
+        var self = this; // we don't want to loose the context
 
         this.id = randomString();
         this.name = name;
         this.$element = createColumn();
 
         function createColumn() {
-    	// tutaj kod do tworzenia kolumny, który znajdziesz niżej
+
             // create div
             var $column = $('<div>').addClass('column');
             // column title
@@ -26,18 +26,18 @@ $(function() {
             // card's list
             var $columnCardList = $('<ul>').addClass('column-card-list');
             // deleting the column
-            var $columnDelete = $('<button>').addClass('btn-delete').text('Usuń kolumnę');
+            var $columnDelete = $('<button>').addClass('btn-delete').text('Delete column');
             // adding the card
-            var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+            var $columnAddCard = $('<button>').addClass('add-card').text('Delete card');
 
             //removing the column
             $columnDelete.click(function() {
                 self.removeColumn();
             });
 
-            // Dodawanie karteczki po kliknięciu w przycisk:
+            // Add card after click
             $columnAddCard.click(function() {
-                self.addCard(new Card(prompt("Wpisz nazwę karty")));
+                self.addCard(new Card(prompt("Card name")));
             });
 
             $column.append($columnTitle)
@@ -66,10 +66,10 @@ $(function() {
            this.$element = createCard(); //
 
            function createCard() {
-	              // implementacja tworzenia karty
+	              // card create
                   var $card = $('<li>').addClass('card');
                   var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-                  var $cardDelete = $('<button>').addClass('btn-delete delete-card').text('Usuń kartę');
+                  var $cardDelete = $('<button>').addClass('btn-delete delete-card').text('Delete card');
 
                   $cardDelete.click(function(){
                       self.removeCard();
@@ -89,7 +89,7 @@ $(function() {
     }
 
     var board = {
-        name: 'Tablica Kanban',
+        name: 'Kanban board',
         addColumn: function(column) {
             this.$element.append(column.$element);
             initSortable();
@@ -106,15 +106,15 @@ $(function() {
 
     $('.create-column')
         .click(function(){
-	           var name = prompt('Wpisz nazwę kolumny');
+	           var name = prompt('Enter column name');
 	           var column = new Column(name);
     	       board.addColumn(column);
            });
 
             // TWORZENIE KOLUMN
-            var todoColumn = new Column('Do zrobienia');
-            var doingColumn = new Column('W trakcie');
-            var doneColumn = new Column('Skończone');
+            var todoColumn = new Column('To do');
+            var doingColumn = new Column('In progress');
+            var doneColumn = new Column('Done');
 
             // DODAWANIE KOLUMN DO TABLICY
             board.addColumn(todoColumn);
@@ -122,8 +122,8 @@ $(function() {
             board.addColumn(doneColumn);
 
             // TWORZENIE NOWYCH EGZEMPLARZY KART
-            var card1 = new Card('Nowe zadanie');
-            var card2 = new Card('Stworzyc tablice kanban');
+            var card1 = new Card('New task');
+            var card2 = new Card('Create kanban table :)');
 
             // DODAWANIE KART DO KOLUMN
             todoColumn.addCard(card1);
